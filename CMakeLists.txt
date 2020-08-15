@@ -19,5 +19,14 @@ node.hpp
 nxfwd.hpp
 nx.hpp
 DESTINATION include/nx)
-include_directories(${PROJECT_SOURCE_DIR}/../../lz4/lib)
-target_link_libraries(NoLifeNx ${PROJECT_SOURCE_DIR}/../../lz4/lib/liblz4.a)
+
+IF (APPLE)
+    include_directories(/usr/local/Cellar/lz4/1.9.2/include)
+    target_link_libraries(NoLifeNx /usr/local/Cellar/lz4/1.9.2/lib/liblz4.a)
+ELSEIF (UNIX AND NOT APPLE)
+    include_directories(/usr/lz4/1.9.2/include)
+    target_link_libraries(NoLifeNx /usr/lz4/1.9.2/lib/liblz4.a)
+ELSEIF (WIN32)
+    include_directories(${PROJECT_SOURCE_DIR}/../../lz4/include)
+    target_link_libraries(NoLifeNx ${PROJECT_SOURCE_DIR}/../../lz4/dll/liblz4.lib)
+ENDIF()
