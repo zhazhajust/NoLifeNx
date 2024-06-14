@@ -21,8 +21,8 @@ nx.hpp
 DESTINATION include/nx)
 
 IF (APPLE)
-    include_directories(/usr/local/Cellar/lz4/1.9.3/include)
-    target_link_libraries(NoLifeNx /usr/local/Cellar/lz4/1.9.3/lib/liblz4.a)
+    include_directories(/opt/homebrew/include)
+    target_link_libraries(NoLifeNx /opt/homebrew/lib/liblz4.a)
 ELSEIF (UNIX AND NOT APPLE)
     include_directories(/usr/lz4/1.9.3/include)
     #target_link_libraries(NoLifeNx /usr/lz4/1.9.2/lib/liblz4.a)
